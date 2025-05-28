@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/usr/local/cuda-12.5/targets/x86_64-linux/include
+CXX_INCLUDES = -I/usr/local/cuda-12.5/targets/x86_64-linux/include -isystem /usr/include/opencv4
 
 CXX_FLAGS = 
 
