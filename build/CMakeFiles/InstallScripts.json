@@ -1,0 +1,7 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/jalsup/gpu-image-segmentation/build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

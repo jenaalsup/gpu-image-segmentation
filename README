@@ -1,2 +1,9 @@
 CS 179 Final Project
 Image Segmentation
+
+How to run:
+cd build
+cmake ..
+make
+./cpu_segmentation (for the cpu version)
+./gpu_segmentation (for the gpu version)
