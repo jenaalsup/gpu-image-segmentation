@@ -256,4 +256,10 @@ CMakeFiles/cpu_segmentation.dir/src/cpu/main_cpu.cpp.o: \
  /usr/include/opencv4/opencv2/core/ovx.hpp \
  /usr/include/opencv4/opencv2/core/cvdef.h \
  /home/jalsup/gpu-image-segmentation/src/cpu/gaussian.hpp \
- /home/jalsup/gpu-image-segmentation/src/cpu/threshold.hpp
+ /home/jalsup/gpu-image-segmentation/src/cpu/threshold.hpp \
+ /home/jalsup/gpu-image-segmentation/src/cpu/labeling.hpp \
+ /usr/include/opencv4/opencv2/imgproc.hpp \
+ /usr/include/opencv4/opencv2/imgproc/segmentation.hpp \
+ /usr/include/opencv4/opencv2/imgcodecs.hpp \
+ /usr/include/opencv4/opencv2/highgui.hpp \
+ /usr/include/opencv4/opencv2/videoio.hpp

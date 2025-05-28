@@ -45,7 +45,7 @@ cv::Mat threshold(const cv::Mat& input) {
         }
     }
 
-    std::cout << "Threshold: " << best_threshold << std::endl;
+  best_threshold = std::max(0, best_threshold - 30);
 
     // apply the threshold to create binary image
     cv::Mat binary = input.clone();
