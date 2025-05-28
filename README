@@ -4,6 +4,6 @@ Image Segmentation
 How to run:
 cd build
 cmake ..
-make
+make -j10
 ./cpu_segmentation (for the cpu version)
 ./gpu_segmentation (for the gpu version)
