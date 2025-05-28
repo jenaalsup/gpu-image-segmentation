@@ -1,11 +1,16 @@
 #include <iostream>
 #include "image_io.hpp"
+#include "gaussian.hpp"
 
 int main() {
     std::string input_path = "../data/embryo512.png";
     auto img = load_image(input_path);
     std::cout << "Loaded image of size: " << img.cols << " x " << img.rows << std::endl;
 
-    save_image("../outputs/copy_embryo512.png", img);
+    // gaussian blur
+    cv::Mat blurred = gaussian_blur(img, 11, 2.0);
+
+    save_image("../outputs/blurred_embryo512.png", blurred);
+    
     return 0;
 }
