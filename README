@@ -1,9 +1,12 @@
 CS 179 Final Project
 Image Segmentation
 
+# CPU Demo
+
 How to run:
 cd build
 cmake ..
 make -j10
 ./cpu_segmentation (for the cpu version)
 ./gpu_segmentation (for the gpu version)
+
