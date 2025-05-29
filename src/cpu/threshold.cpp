@@ -42,7 +42,6 @@ cv::Mat threshold(const cv::Mat& input) {
     // no valid pixels
     if (total_pixels == 0) return clipped.clone();
 
-
     // step 4: otsu's method for thresholding
     double sum_all = 0.0;
     for (int i = 0; i < 256; i++) sum_all += i * hist[i];
