@@ -1,6 +1,13 @@
 #include "labeling.hpp"
 #include <stack>
 
+// PARALLELIZE THIS:
+// The current implementation is not easily parallelizable.
+// Do a block-wise segmentation:
+// - Divide the image into tiles.
+// - Label each tile independently in parallel (assigning temporary labels).
+// - Merge connected components across tile borders using a union-find or label equivalence step.
+
 bool is_foreground(const cv::Mat& img, int y, int x) {
     return img.at<uchar>(y, x) == 255;
 }

@@ -8,6 +8,7 @@ static cv::Mat create_gaussian_kernel(int ksize, double sigma) {
     double sum = 0.0;
 
     // fill in each element of the kernel going about the center 
+    // PARALLELIZE THIS: assign each pixel to a thread
     for (int dy = -half; dy <= half; dy++) {
         for (int dx = -half; dx <= half; dx++) {
             double gaussian_value = std::exp(-(dx * dx + dy * dy) / (2 * sigma * sigma)); // closer cells get higher weights

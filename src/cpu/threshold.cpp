@@ -8,6 +8,7 @@ cv::Mat threshold(const cv::Mat& input) {
     const int ignore_below = 15;
 
     // part 1: collect all pixel intensities into a flat vector
+    // PARALLELIZE THIS: assign each pixel to a thread
     std::vector<uchar> pixels;
     if (input.isContinuous()) {
         pixels.assign(input.datastart, input.dataend);
@@ -29,6 +30,7 @@ cv::Mat threshold(const cv::Mat& input) {
     cv::normalize(clipped, clipped, 0, 255, cv::NORM_MINMAX);
 
     // part 3: build histogram ignoring dark values
+    // PARALLELIZE THIS: assign each pixel to a thread
     int hist[256] = {0}, total_pixels = 0;
     for (int y = 0; y < clipped.rows; y++) {
         for (int x = 0; x < clipped.cols; x++) {
@@ -43,6 +45,7 @@ cv::Mat threshold(const cv::Mat& input) {
     if (total_pixels == 0) return clipped.clone();
 
     // step 4: otsu's method for thresholding
+    // no need to PARALLELIZE this as it is capped at 256 values
     double sum_all = 0.0;
     for (int i = 0; i < 256; i++) sum_all += i * hist[i];
 
@@ -71,6 +74,7 @@ cv::Mat threshold(const cv::Mat& input) {
     }
 
     // part 5: binarize
+    // PARALLELIZE THIS: assign each pixel to a thread while binarizing
     cv::Mat binary;
     cv::threshold(clipped, binary, best_thresh, 255, cv::THRESH_BINARY);
 
