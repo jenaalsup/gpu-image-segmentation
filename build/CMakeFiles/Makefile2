@@ -65,11 +65,13 @@ CMAKE_BINARY_DIR = /home/jalsup/gpu-image-segmentation/build
 # The main recursive "all" target.
 all: CMakeFiles/cpu_segmentation.dir/all
 all: CMakeFiles/gpu_segmentation.dir/all
+all: CMakeFiles/cpu_tests.dir/all
 .PHONY : all
 
 # The main recursive "codegen" target.
 codegen: CMakeFiles/cpu_segmentation.dir/codegen
 codegen: CMakeFiles/gpu_segmentation.dir/codegen
+codegen: CMakeFiles/cpu_tests.dir/codegen
 .PHONY : codegen
 
 # The main recursive "preinstall" target.
@@ -79,6 +81,7 @@ preinstall:
 # The main recursive "clean" target.
 clean: CMakeFiles/cpu_segmentation.dir/clean
 clean: CMakeFiles/gpu_segmentation.dir/clean
+clean: CMakeFiles/cpu_tests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -120,7 +123,7 @@ CMakeFiles/cpu_segmentation.dir/clean:
 CMakeFiles/gpu_segmentation.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=7,8,9,10,11 "Built target gpu_segmentation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=13,14,15,16,17 "Built target gpu_segmentation"
 .PHONY : CMakeFiles/gpu_segmentation.dir/all
 
 # Build rule for subdir invocation for target.
@@ -137,13 +140,45 @@ gpu_segmentation: CMakeFiles/gpu_segmentation.dir/rule
 # codegen rule for target.
 CMakeFiles/gpu_segmentation.dir/codegen:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/codegen
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=7,8,9,10,11 "Finished codegen for target gpu_segmentation"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=13,14,15,16,17 "Finished codegen for target gpu_segmentation"
 .PHONY : CMakeFiles/gpu_segmentation.dir/codegen
 
 # clean rule for target.
 CMakeFiles/gpu_segmentation.dir/clean:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/clean
 .PHONY : CMakeFiles/gpu_segmentation.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/cpu_tests.dir
+
+# All Build rule for target.
+CMakeFiles/cpu_tests.dir/all:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Built target cpu_tests"
+.PHONY : CMakeFiles/cpu_tests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/cpu_tests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalsup/gpu-image-segmentation/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/cpu_tests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/jalsup/gpu-image-segmentation/build/CMakeFiles 0
+.PHONY : CMakeFiles/cpu_tests.dir/rule
+
+# Convenience name for target.
+cpu_tests: CMakeFiles/cpu_tests.dir/rule
+.PHONY : cpu_tests
+
+# codegen rule for target.
+CMakeFiles/cpu_tests.dir/codegen:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/codegen
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/jalsup/gpu-image-segmentation/build/CMakeFiles --progress-num=7,8,9,10,11,12 "Finished codegen for target cpu_tests"
+.PHONY : CMakeFiles/cpu_tests.dir/codegen
+
+# clean rule for target.
+CMakeFiles/cpu_tests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/clean
+.PHONY : CMakeFiles/cpu_tests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

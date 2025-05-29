@@ -42,3 +42,15 @@ set(GPU_LINK_LIBS
 )
 
 target_link_libraries(gpu_segmentation "${GPU_LINK_LIBS}")
+
+
+# tests
+set(TEST_SOURCE_FILES
+    src/tests/test_main.cpp
+    src/cpu/gaussian.cpp
+    src/cpu/threshold.cpp
+    src/cpu/labeling.cpp
+    src/cpu/image_io.cpp
+)
+add_executable(cpu_tests "${TEST_SOURCE_FILES}")
+target_link_libraries(cpu_tests ${OpenCV_LIBS})

@@ -1,4 +1,5 @@
 /home/jalsup/gpu-image-segmentation/build/CMakeFiles/cpu_segmentation.dir
 /home/jalsup/gpu-image-segmentation/build/CMakeFiles/gpu_segmentation.dir
+/home/jalsup/gpu-image-segmentation/build/CMakeFiles/cpu_tests.dir
 /home/jalsup/gpu-image-segmentation/build/CMakeFiles/edit_cache.dir
 /home/jalsup/gpu-image-segmentation/build/CMakeFiles/rebuild_cache.dir

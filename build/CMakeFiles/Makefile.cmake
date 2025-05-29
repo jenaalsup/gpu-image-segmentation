@@ -66,4 +66,5 @@ set(CMAKE_MAKEFILE_PRODUCTS
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/cpu_segmentation.dir/DependInfo.cmake"
   "CMakeFiles/gpu_segmentation.dir/DependInfo.cmake"
+  "CMakeFiles/cpu_tests.dir/DependInfo.cmake"
   )

@@ -142,12 +142,26 @@ gpu_segmentation/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/build
 .PHONY : gpu_segmentation/fast
 
+#=============================================================================
+# Target rules for targets named cpu_tests
+
+# Build rule for target.
+cpu_tests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cpu_tests
+.PHONY : cpu_tests
+
+# fast build rule for target.
+cpu_tests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/build
+.PHONY : cpu_tests/fast
+
 src/cpu/gaussian.o: src/cpu/gaussian.cpp.o
 .PHONY : src/cpu/gaussian.o
 
 # target to build an object file
 src/cpu/gaussian.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/gaussian.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/gaussian.cpp.o
 .PHONY : src/cpu/gaussian.cpp.o
 
 src/cpu/gaussian.i: src/cpu/gaussian.cpp.i
@@ -156,6 +170,7 @@ src/cpu/gaussian.i: src/cpu/gaussian.cpp.i
 # target to preprocess a source file
 src/cpu/gaussian.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/gaussian.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/gaussian.cpp.i
 .PHONY : src/cpu/gaussian.cpp.i
 
 src/cpu/gaussian.s: src/cpu/gaussian.cpp.s
@@ -164,6 +179,7 @@ src/cpu/gaussian.s: src/cpu/gaussian.cpp.s
 # target to generate assembly for a file
 src/cpu/gaussian.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/gaussian.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/gaussian.cpp.s
 .PHONY : src/cpu/gaussian.cpp.s
 
 src/cpu/image_io.o: src/cpu/image_io.cpp.o
@@ -172,6 +188,7 @@ src/cpu/image_io.o: src/cpu/image_io.cpp.o
 # target to build an object file
 src/cpu/image_io.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/image_io.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/image_io.cpp.o
 .PHONY : src/cpu/image_io.cpp.o
 
 src/cpu/image_io.i: src/cpu/image_io.cpp.i
@@ -180,6 +197,7 @@ src/cpu/image_io.i: src/cpu/image_io.cpp.i
 # target to preprocess a source file
 src/cpu/image_io.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/image_io.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/image_io.cpp.i
 .PHONY : src/cpu/image_io.cpp.i
 
 src/cpu/image_io.s: src/cpu/image_io.cpp.s
@@ -188,6 +206,7 @@ src/cpu/image_io.s: src/cpu/image_io.cpp.s
 # target to generate assembly for a file
 src/cpu/image_io.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/image_io.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/image_io.cpp.s
 .PHONY : src/cpu/image_io.cpp.s
 
 src/cpu/labeling.o: src/cpu/labeling.cpp.o
@@ -196,6 +215,7 @@ src/cpu/labeling.o: src/cpu/labeling.cpp.o
 # target to build an object file
 src/cpu/labeling.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/labeling.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/labeling.cpp.o
 .PHONY : src/cpu/labeling.cpp.o
 
 src/cpu/labeling.i: src/cpu/labeling.cpp.i
@@ -204,6 +224,7 @@ src/cpu/labeling.i: src/cpu/labeling.cpp.i
 # target to preprocess a source file
 src/cpu/labeling.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/labeling.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/labeling.cpp.i
 .PHONY : src/cpu/labeling.cpp.i
 
 src/cpu/labeling.s: src/cpu/labeling.cpp.s
@@ -212,6 +233,7 @@ src/cpu/labeling.s: src/cpu/labeling.cpp.s
 # target to generate assembly for a file
 src/cpu/labeling.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/labeling.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/labeling.cpp.s
 .PHONY : src/cpu/labeling.cpp.s
 
 src/cpu/main_cpu.o: src/cpu/main_cpu.cpp.o
@@ -244,6 +266,7 @@ src/cpu/threshold.o: src/cpu/threshold.cpp.o
 # target to build an object file
 src/cpu/threshold.cpp.o:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/threshold.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/threshold.cpp.o
 .PHONY : src/cpu/threshold.cpp.o
 
 src/cpu/threshold.i: src/cpu/threshold.cpp.i
@@ -252,6 +275,7 @@ src/cpu/threshold.i: src/cpu/threshold.cpp.i
 # target to preprocess a source file
 src/cpu/threshold.cpp.i:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/threshold.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/threshold.cpp.i
 .PHONY : src/cpu/threshold.cpp.i
 
 src/cpu/threshold.s: src/cpu/threshold.cpp.s
@@ -260,6 +284,7 @@ src/cpu/threshold.s: src/cpu/threshold.cpp.s
 # target to generate assembly for a file
 src/cpu/threshold.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_segmentation.dir/build.make CMakeFiles/cpu_segmentation.dir/src/cpu/threshold.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/cpu/threshold.cpp.s
 .PHONY : src/cpu/threshold.cpp.s
 
 src/gpu/gaussian.o: src/gpu/gaussian.cu.o
@@ -358,6 +383,30 @@ src/gpu/threshold.cu.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/gpu_segmentation.dir/build.make CMakeFiles/gpu_segmentation.dir/src/gpu/threshold.cu.s
 .PHONY : src/gpu/threshold.cu.s
 
+src/tests/test_main.o: src/tests/test_main.cpp.o
+.PHONY : src/tests/test_main.o
+
+# target to build an object file
+src/tests/test_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/tests/test_main.cpp.o
+.PHONY : src/tests/test_main.cpp.o
+
+src/tests/test_main.i: src/tests/test_main.cpp.i
+.PHONY : src/tests/test_main.i
+
+# target to preprocess a source file
+src/tests/test_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/tests/test_main.cpp.i
+.PHONY : src/tests/test_main.cpp.i
+
+src/tests/test_main.s: src/tests/test_main.cpp.s
+.PHONY : src/tests/test_main.s
+
+# target to generate assembly for a file
+src/tests/test_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/cpu_tests.dir/build.make CMakeFiles/cpu_tests.dir/src/tests/test_main.cpp.s
+.PHONY : src/tests/test_main.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -367,6 +416,7 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... cpu_segmentation"
+	@echo "... cpu_tests"
 	@echo "... gpu_segmentation"
 	@echo "... src/cpu/gaussian.o"
 	@echo "... src/cpu/gaussian.i"
@@ -395,6 +445,9 @@ help:
 	@echo "... src/gpu/threshold.o"
 	@echo "... src/gpu/threshold.i"
 	@echo "... src/gpu/threshold.s"
+	@echo "... src/tests/test_main.o"
+	@echo "... src/tests/test_main.i"
+	@echo "... src/tests/test_main.s"
 .PHONY : help
 
 

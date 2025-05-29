@@ -1,12 +1,16 @@
 CS 179 Final Project
 Image Segmentation
 
-# CPU Demo
+- 3 Input Images of 3 sizes in /data
+- Output images created in /outputs
 
+# CPU Demo
 How to run:
 cd build
 cmake ..
 make -j10
 ./cpu_segmentation (for the cpu version)
-./gpu_segmentation (for the gpu version)
+./gpu_segmentation (for the gpu version - not implemented yet)
+./cpu_tests (to run the cpu tests)
+
 
