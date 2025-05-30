@@ -1,11 +1,10 @@
+Image Segmentation of Embryos
 CS 179 Final Project
-Image Segmentation
+Spring 2025
+Jena Alsup
 
-- 3 Input Images of 3 sizes in /data
-- Output images created in /outputs
 
-# CPU Demo
-How to run:
+- Installation and usage instructions
 cd build
 cmake ..
 make -j10
@@ -13,4 +12,32 @@ make -j10
 ./gpu_segmentation (for the gpu version - not implemented yet)
 ./cpu_tests (to run the cpu tests)
 
+
+- Project description and features
+GPU-accelerated image segmentation on biological microscopy images of cells.
+Segmentation enables the quantification of cell count, cell shape, tissue thickness, and a 3D reconstruction of the structure.
+The implemented algorithm for segmentation includes 3 steps:
+1. Gaussian blur: Each thread computes an average of neighboring pixels
+2. Thresholding: Computes optimal threshold to binarize the image and binarizes it
+3. Labeling Components: Assign a unique label (eg 1, 2, 3, 4) to each nuclei / structure identified in the image
+
+
+- Expected results and screenshots
+inputs in /data. resulting images in /outputs. Given a 2d slice of an embryo, we expect each of the nuclei to be outlined and numbered. We have 3 input and their resulting outputs.
+
+
+
+- Performance analysis comparing CPU and GPU versions
+CPU Times:
+- 512x512:
+- 1024x1024:
+- 2048x2048: 
+GPU Times:
+- 512x512:
+- 1024x1024:
+- 2048x2048: 
+
+
+- Potential improvements
+Add more steps to the algorithm to make it more accurate. For example, despeckling, a more advanced thresholding method, edge smoothing, etc. This would make the algorihtm more generalizable to all microscopy images of embryos, as the current approach was potentially overfitted to just work well on the sample images.
 
