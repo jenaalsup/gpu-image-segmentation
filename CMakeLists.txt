@@ -1,6 +1,12 @@
 cmake_minimum_required(VERSION 3.24)  # for CUDA architecture native
 project(image_segmentation LANGUAGES CXX CUDA)
 
+# enable C++20 for both C++ and CUDA
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CUDA_STANDARD 20)
+set(CMAKE_CUDA_STANDARD_REQUIRED ON)
+
 # opencv for image io
 find_package(OpenCV REQUIRED)
 include_directories(${OpenCV_INCLUDE_DIRS})

@@ -6,5 +6,5 @@ CUDA_DEFINES =
 
 CUDA_INCLUDES = --options-file CMakeFiles/gpu_segmentation.dir/includes_CUDA.rsp
 
-CUDA_FLAGS =  -arch=native
+CUDA_FLAGS = -std=c++20 -arch=native
 
