@@ -11,13 +11,14 @@ cmake ..
 make -j10
 ./cpu_segmentation       # CPU version
 ./gpu_segmentation       # GPU version
-./cpu_tests              # Run CPU tests
+./cpu_tests              # Run CPU tests to verify correctness of segmentation steps
 ```
 ------------------------------------------------------------
 Project Description and Features
 ------------------------------------------------------------
 
-This project implements GPU-accelerated image segmentation for biological microscopy images of cells using CUDA.
+This project implements GPU-accelerated image segmentation for biological microscopy images of cells using CUDA. It speeds up nucleus detection in embryo images using a parallelized Gaussian blur, thresholding, and labeling pipeline.
+
 Segmentation enables:
 - Quantification of cell count, cell shape, and tissue thickness
 - 3D reconstruction of biological structures
@@ -40,7 +41,12 @@ Expected Results and Screenshots
 - Input images are located in the /data folder
 - Output results are saved to the /outputs folder
 - Given a 2D slice of an embryo, each nucleus should be outlined and numbered in the resulting image
-- The dataset includes 3 input images of different sizes (512, 1024, 2048) and their corresponding outputs
+- The dataset includes three input images (grayscaled embryo slices) of different sizes (512x512, 1024x1024, 2048x2048) and their corresponding outputs
+
+Example Output:
+- `blurred_embryo512.png` (smoothed with gaussian blurring)
+- `binary_embryo512.png` (thresholded)
+- `segmented_embryo512.png` (each nucleus labeled and colored)
 
 ------------------------------------------------------------
 Performance Analysis: CPU vs. GPU
@@ -56,7 +62,7 @@ GPU Times
 - 1024×1024: 97 ms
 - 2048×2048: 356 ms
 
-The GPU significantly sped up the segmentation time. Note that for a smaller 512x512 image, using a GPU is not as beneficial because GPU acceleration requires much overhead that doesn't scale down with smaller images.
+The GPU significantly sped up the segmentation time. Note that for a smaller 512x512 image, GPU acceleration involves fixed overhead (kernel launch and memory transfer), which outweighs the benefits for small images and explains why it is relatively slow.
 
 ------------------------------------------------------------
 Potential Improvements
