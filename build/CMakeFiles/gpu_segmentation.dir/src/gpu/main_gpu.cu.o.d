@@ -479,4 +479,6 @@ CMakeFiles/gpu_segmentation.dir/src/gpu/main_gpu.cu.o : /home/jalsup/gpu-image-s
     /usr/include/opencv4/opencv2/video.hpp \
     /usr/include/opencv4/opencv2/video/tracking.hpp \
     /usr/include/opencv4/opencv2/video/background_segm.hpp \
-    /home/jalsup/gpu-image-segmentation/src/gpu/gaussian.cuh
+    /home/jalsup/gpu-image-segmentation/src/gpu/gaussian.cuh \
+    /home/jalsup/gpu-image-segmentation/src/gpu/threshold.cuh \
+    /home/jalsup/gpu-image-segmentation/src/gpu/labeling.cuh
