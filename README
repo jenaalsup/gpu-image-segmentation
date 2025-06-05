@@ -17,7 +17,7 @@ make -j10
 Project Description and Features
 ------------------------------------------------------------
 
-This project implements GPU-accelerated image segmentation for biological microscopy images of cells.
+This project implements GPU-accelerated image segmentation for biological microscopy images of cells using CUDA.
 Segmentation enables:
 - Quantification of cell count, cell shape, and tissue thickness
 - 3D reconstruction of biological structures

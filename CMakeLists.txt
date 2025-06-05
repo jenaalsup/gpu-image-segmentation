@@ -41,7 +41,7 @@ set(GPU_LINK_LIBS
     CUDA::cusolver
 )
 
-target_link_libraries(gpu_segmentation "${GPU_LINK_LIBS}")
+target_link_libraries(gpu_segmentation ${OpenCV_LIBS} ${GPU_LINK_LIBS})
 
 
 # tests

@@ -16,11 +16,11 @@ int main() {
 
         // kernel 1: gaussian blur
         cv::Mat blurred = gaussian_blur(img, 15, 3.0);
-        save_image("../outputs/blurred_embryo" + img_num + ".png", blurred);
+        save_image("../outputs/cpu/blurred_embryo" + img_num + ".png", blurred);
 
         // kernel 2: thresholding
         cv::Mat binary = threshold(blurred);
-        save_image("../outputs/binary_embryo" + img_num + ".png", binary);
+        save_image("../outputs/cpu/binary_embryo" + img_num + ".png", binary);
 
         // kernel 3: labeling components (nuclei)
         cv::Mat labels = label_components(binary);
@@ -47,8 +47,8 @@ int main() {
                             cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(191, 64, 191), 1);
             }
         }
-        save_image("../outputs/segmented_embryo" + img_num + ".png", output);
-        std::cout << "saved segmented image to outputs/segmented_embryo" + img_num + ".png" << std::endl;
+        save_image("../outputs/cpu/segmented_embryo" + img_num + ".png", output);
+        std::cout << "saved segmented image to outputs/cpu/segmented_embryo" + img_num + ".png" << std::endl;
     }
 
     return 0;

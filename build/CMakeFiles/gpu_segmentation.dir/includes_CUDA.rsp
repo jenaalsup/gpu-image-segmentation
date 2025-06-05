@@ -1,1 +1,1 @@
--I/usr/include/opencv4 -isystem "/usr/local/cuda-12.5/targets/x86_64-linux/include"
+-isystem /usr/include/opencv4 -isystem "/usr/local/cuda-12.5/targets/x86_64-linux/include"
