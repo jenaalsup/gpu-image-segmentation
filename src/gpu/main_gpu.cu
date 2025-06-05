@@ -11,56 +11,47 @@ int main() {
     std::string input_path = "../data/embryo512.png";
     cv::Mat input = cv::imread(input_path, cv::IMREAD_GRAYSCALE);
 
-    // gaussian blur
+    const int width = input.cols;
+    const int height = input.rows;
+    const std::string out_dir = "../outputs/gpu/";
+
+    // step 1: gaussian blur
     cv::Mat blurred(input.size(), CV_8UC1);
-    runGaussianBlur(input.data, blurred.data, input.cols, input.rows);
-    std::string blurred_path = "../outputs/gpu/gaussian_output.png";
-    cv::imwrite(blurred_path, blurred);
-    std::cout << "Saved blurred image to " << blurred_path << std::endl;
+    runGaussianBlur(input.data, blurred.data, width, height);
+    cv::imwrite(out_dir + "gaussian_output.png", blurred);
+    std::cout << "Saved blurred image" << std::endl;
 
-    // thresholding
+    // step 2: thresholding
     cv::Mat binary(input.size(), CV_8UC1);
-    runThresholding(blurred.data, binary.data, input.cols, input.rows);
-    std::string binary_path = "../outputs/gpu/threshold_output.png";
-    cv::imwrite(binary_path, binary);
-    std::cout << "Saved thresholded image to " << binary_path << std::endl;
+    runThresholding(blurred.data, binary.data, width, height);
+    cv::imwrite(out_dir + "threshold_output.png", binary);
+    std::cout << "Saved thresholded image" << std::endl;
 
-
-    // Labeling
+    // step 3: labeling
     cv::Mat labels(binary.size(), CV_32S);
-    runLabeling(binary.data, reinterpret_cast<int*>(labels.data), binary.cols, binary.rows);
+    runLabeling(binary.data, reinterpret_cast<int*>(labels.data), width, height);
 
     // remap the labels to be contiguous
     std::map<int, int> label_map;
     int next_id = 1;
-    for (int y = 0; y < labels.rows; y++) {
-        for (int x = 0; x < labels.cols; x++) {
-            int val = labels.at<int>(y, x);
-            if (val > 0 && label_map.count(val) == 0) {
-                label_map[val] = next_id++;
-            }
-        }
-    }
-    for (int y = 0; y < labels.rows; y++) {
-        for (int x = 0; x < labels.cols; x++) {
-            int val = labels.at<int>(y, x);
-            if (val > 0) {
-                labels.at<int>(y, x) = label_map[val];
-            }
+    for (int i = 0; i < labels.rows * labels.cols; ++i) {
+        int& val = labels.at<int>(i / width, i % width);
+        if (val > 0) {
+            if (!label_map.count(val)) label_map[val] = next_id++;
+            val = label_map[val];
         }
     }
     int num_labels = next_id - 1;
 
-    // Post-processing: color and label
+    // post-processing: color and label overlay
     cv::Mat output(binary.size(), CV_8UC3, cv::Scalar(0, 0, 0));
     for (int y = 0; y < labels.rows; y++) {
         for (int x = 0; x < labels.cols; x++) {
             if (labels.at<int>(y, x) > 0) {
-                output.at<cv::Vec3b>(y, x) = cv::Vec3b(255, 230, 100);  // yellowish
+                output.at<cv::Vec3b>(y, x) = cv::Vec3b(255, 230, 100); 
             }
         }
     }
-
     for (int i = 1; i <= num_labels; i++) {
         cv::Mat mask = (labels == i);
         cv::Moments m = cv::moments(mask, true);
@@ -71,10 +62,8 @@ int main() {
                         cv::FONT_HERSHEY_SIMPLEX, 0.4, cv::Scalar(191, 64, 191), 1);  // purple text
         }
     }
-
-    std::string output_path = "../outputs/gpu/segmented_embryo512.png";
-    cv::imwrite(output_path, output);
-    std::cout << "Saved segmented image to " << output_path << std::endl;
+    cv::imwrite(out_dir + "segmented_embryo512.png", output);
+    std::cout << "Saved segmented image " << std::endl;
 
     return 0;
 }
