@@ -64,11 +64,11 @@ int main() {
         }
         std::string out_path = out_dir + "segmented_embryo" + img_num + ".png";
         cv::imwrite(out_path, output);
-        std::cout << "Saved segmented image to " << out_path << std::endl;
+        std::cout << "saved segmented image to " << out_path << std::endl;
 
         auto end = std::chrono::high_resolution_clock::now();  // end timer
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        std::cout << "GPU Segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
+        std::cout << "GPU segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
     }
     return 0;
 }

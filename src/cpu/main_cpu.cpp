@@ -54,7 +54,7 @@ int main() {
 
         auto end = std::chrono::high_resolution_clock::now();  // end timer
         auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
-        std::cout << "CPU Segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
+        std::cout << "CPU segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
     }
 
     return 0;
