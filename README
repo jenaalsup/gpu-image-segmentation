@@ -40,21 +40,23 @@ Expected Results and Screenshots
 - Input images are located in the /data folder
 - Output results are saved to the /outputs folder
 - Given a 2D slice of an embryo, each nucleus should be outlined and numbered in the resulting image
-- The dataset includes 3 input images and their corresponding outputs
+- The dataset includes 3 input images of different sizes (512, 1024, 2048) and their corresponding outputs
 
 ------------------------------------------------------------
 Performance Analysis: CPU vs. GPU
 ------------------------------------------------------------
 
-CPU Times  
-- 512×512:  
-- 1024×1024:  
-- 2048×2048:  
+CPU Times  (Benchmark)
+- 512×512: 595 ms
+- 1024×1024: 2353 ms 
+- 2048×2048: 10291 ms
 
 GPU Times  
-- 512×512:  
-- 1024×1024:  
-- 2048×2048:  
+- 512×512: 364 ms
+- 1024×1024: 97 ms
+- 2048×2048: 356 ms
+
+The GPU significantly sped up the segmentation time. Note that for a smaller 512x512 image, using a GPU is not as beneficial because GPU acceleration requires much overhead that doesn't scale down with smaller images.
 
 ------------------------------------------------------------
 Potential Improvements
@@ -64,4 +66,4 @@ Potential Improvements
   - Despeckling
   - Advanced thresholding methods
   - Edge smoothing
-- These improvements would help generalize the algorithm to a broader range of microscopy images, as the current implementation may be overfitted to the sample dataset.
+- These improvements would help generalize the algorithm to a broader range of microscopy images, as the current implementation may be overfitted to the sample dataset, and doesn't work as well on the 2048x2048 image where the nuclei appear smaller.

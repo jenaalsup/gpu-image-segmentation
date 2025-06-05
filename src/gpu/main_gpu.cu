@@ -1,5 +1,6 @@
 #include <iostream>
 #include <opencv2/opencv.hpp>
+#include <chrono>
 #include "gaussian.cuh"
 #include "threshold.cuh"
 #include "labeling.cuh"
@@ -7,6 +8,8 @@
 int main() {
     std::vector<std::string> images = {"512", "1024", "2048"};
     for (const auto& img_num : images) {
+        auto start = std::chrono::high_resolution_clock::now();  // start timer
+
         std::string input_path = "../data/embryo" + img_num + ".png";
         cv::Mat input = cv::imread(input_path, cv::IMREAD_GRAYSCALE);
 
@@ -62,6 +65,10 @@ int main() {
         std::string out_path = out_dir + "segmented_embryo" + img_num + ".png";
         cv::imwrite(out_path, output);
         std::cout << "Saved segmented image to " << out_path << std::endl;
+
+        auto end = std::chrono::high_resolution_clock::now();  // end timer
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "GPU Segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
     }
     return 0;
 }

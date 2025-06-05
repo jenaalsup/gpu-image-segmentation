@@ -11,6 +11,8 @@
 int main() {
     std::vector<std::string> images = {"512", "1024", "2048"};
     for (const auto& img_num : images) {
+        auto start = std::chrono::high_resolution_clock::now();  // start timer
+
         std::string input_path = "../data/embryo" + img_num + ".png";
         auto img = load_image(input_path);
 
@@ -49,6 +51,10 @@ int main() {
         }
         save_image("../outputs/cpu/segmented_embryo" + img_num + ".png", output);
         std::cout << "saved segmented image to outputs/cpu/segmented_embryo" + img_num + ".png" << std::endl;
+
+        auto end = std::chrono::high_resolution_clock::now();  // end timer
+        auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end - start);
+        std::cout << "CPU Segmentation time for embryo" << img_num << ": " << duration.count() << " ms" << std::endl;
     }
 
     return 0;
